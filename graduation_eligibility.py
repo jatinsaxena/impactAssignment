@@ -1,6 +1,7 @@
 class Graduation:
     """
-    Graduation class for
+    Graduation class for calculating
+    ways to attend classes
     """
     def __init__(self, n: int, m: int = 4):
         self.number_of_days = n
@@ -15,7 +16,10 @@ class Graduation:
         return self.rec(n - 1, 0) + self.rec(n - 1, m + 1)
 
     def calculate(self):
-        x1 = self.rec(self.number_of_days, 0)  # total number of valid way to attend classes
-        x2 = self.rec(self.number_of_days - 1, 1)  # total number of way to miss last day
+        # Number of ways to attend classes
+        x1 = self.rec(self.number_of_days, 0)
+
+        # Number of ways to miss the last day
+        x2 = self.rec(self.number_of_days - 1, 1)
 
         return f"{x2}/{x1}"
